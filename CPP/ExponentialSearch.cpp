@@ -1,3 +1,8 @@
+/*
+    ! Exponential Search
+
+*/
+
 #include <iostream>
 
 using namespace std;
@@ -21,8 +26,7 @@ int main()
     {
         arr[i] = i * 15;
     }
-
-    cout << arr;
+    char a[4] = {'a', 'c', 'e', 'f'};
 
     return 0;
 }
