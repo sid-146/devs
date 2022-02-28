@@ -4,8 +4,6 @@
 */
 
 #include <iostream>
-#include <bits/stdc++.h>
-#include <tuple>
 
 using namespace std;
 
@@ -14,16 +12,10 @@ int exponentialSearch(int arr[], int n, int value)
 
     int indexValue, low = 0, high = n - 1, exp = 1, prevExp = 0;
 
-    if (arr[low] == low)
+    while (exp <= n)
     {
-        return low;
+        indexValue = BinarySearch(arr, n, low, high);
     }
-    if (arr[exp] > value)
-    {
-        low =
-    }
-
-    indexValue = BinarySearch(arr, n, low, high);
 
     return indexValue;
 }
