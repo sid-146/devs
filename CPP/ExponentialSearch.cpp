@@ -14,7 +14,7 @@ int exponentialSearch(int arr[], int n, int value)
 
     while (exp <= n)
     {
-        indexValue = BinarySearch(arr, n, low, high);
+        indexValue = BinarySearch(arr, n, olow, high);
     }
 
     return indexValue;
