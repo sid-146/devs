@@ -1,2 +1,3 @@
 # AlgoRhythm
- 
+
+## Exponential Search
