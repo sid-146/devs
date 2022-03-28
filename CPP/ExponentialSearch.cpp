@@ -4,8 +4,17 @@
 */
 
 #include <iostream>
+#include <bits/stdc++.h>
+#define HUNDRED 100
+#define FIFTEEN 15
 
 using namespace std;
+
+int BinarySearch(int arr[], int n, int low, int high)
+{
+    int index;
+    return index;
+}
 
 int exponentialSearch(int arr[], int n, int value)
 {
@@ -20,26 +29,23 @@ int exponentialSearch(int arr[], int n, int value)
     return indexValue;
 }
 
-int BinarySearch(int arr[], int n, int low, int high)
-{
-    int index;
-    return index;
-}
-
 int main()
 {
-    int n = 10;
-    int arr[10];
+    int arr[FIFTEEN];
+    srand(time(0));
 
     // int value = 105;
-    int value = 100;
+    int value = HUNDRED;
 
-    for (int i = 1; i < n; i++)
+    for (int i = 1; i < FIFTEEN; i++)
     {
-        arr[i] = i * 15;
+        int random;
+
+        random = rand();
+        cout << random << " ";
     }
 
-    if (int ans = exponentialSearch(arr, n, value) == -1)
+    if (int ans = exponentialSearch(arr, FIFTEEN, value) == -1)
     {
         cout << "Value not in array" << endl;
     }
