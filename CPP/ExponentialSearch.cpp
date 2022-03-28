@@ -1,6 +1,6 @@
 /*
     ! Exponential Search
-
+    ? example
 */
 
 #include <iostream>
@@ -40,10 +40,15 @@ int main()
     for (int i = 1; i < FIFTEEN; i++)
     {
         int random;
-
         random = rand();
-        cout << random << " ";
+        arr[i] = random;
     }
+
+    for (int i = 0; i < FIFTEEN; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
 
     if (int ans = exponentialSearch(arr, FIFTEEN, value) == -1)
     {
