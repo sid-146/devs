@@ -16,13 +16,17 @@ video_response = [
     { "name" : "Shazam", "views": 1053540, "likes": 194339,},
     { "name" : "Pokimane", "views": 4927200, "likes": 1318399,},
     { "name" : "Dapr", "views": 9000000, "likes": 111499,},
+    { "name" : "Zombs", "views": 8383200, "likes": 2225499,},
+    { "name" : "Sinister", "views": 62450000, "likes": 1252529,},
+    { "name" : "Pollux", "views": 24242523, "likes": 99738822,},
 ]
 
 
 for i in range(len(video_response)):
     response = requests.put(BASE_URL+ "Video/" + str(i), video_response[i])
 
-n = input("enter (0,4)")
+print("Range 0, {0}".format(len(video_response)-1))
+n = int(input())
 
 response2 = requests.get(BASE_URL+ "Video/{0}".format(n))
 
