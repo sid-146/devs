@@ -93,10 +93,13 @@ class param(Resource):
         return names[name]
 
 class Video(Resource):
+    # To fetch data
     def get(self, video_id):
         videoIDnotValid(video_id=video_id)
         return videos[video_id]
 
+    # To update data
+    # @marshal_with(Resource_Field)
     def put(self, video_id):
         videoIDExist(video_id=video_id)
         args = videos_request_parser.parse_args()
@@ -110,9 +113,16 @@ class Video(Resource):
         pass
 
 class NewVideoAPI(Resource):
+    # To fetch data
+    @marshal_with(Resource_Field)
     def get(self, video_id):
         result = videoModel.query.get(id= video_id)
 
+    # To update data
+    def put(self, video_id):
+        args = videos_request_parser.parse_args()
+        video = videoModel(id= video_id, name = args['name'], views= args['views'], likes= args['likes'])
+        return videos[video_id], 201
 
 
 
