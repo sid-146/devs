@@ -3,6 +3,13 @@ from flask import Flask, jsonify
 from flask_restful import Api, Resource, abort, reqparse
 from requests import request
 
+##! Error CODE
+'''
+# ! 200 working fine
+# ! 201 Successful
+# ! 204 successful  
+'''
+
 
 #create app
 app = Flask(__name__)
