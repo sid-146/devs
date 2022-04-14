@@ -1,9 +1,8 @@
-
-'''
+"""
 calculate dx, dy, slop
 
 
-'''
+"""
 from turtle import xcor
 from matplotlib import pyplot
 
