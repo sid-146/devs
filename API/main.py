@@ -6,8 +6,9 @@ from requests import request
 ##! Error CODE
 '''
 # ! 200 working fine
-# ! 201 Successful
-# ! 204 successful  
+# ! 201 Successful updatation
+# ! 204 successful deletion
+# ! 
 '''
 
 
