@@ -10,18 +10,27 @@ param_response = requests.get(BASE_URL + "para/SK")
 param2_response = requests.get(BASE_URL + "para/Rio")
 param3_response = requests.get(BASE_URL + "para/Oli")
 
-video_response = requests.put(BASE_URL + "Video/1", {"name":"XYZ", "likes": 100, "views": 100000})
-video_response2 = requests.put(BASE_URL + "Video/2", {"name":"ABC", "likes": 100})
+video_response = [
+    { "name" : "How to Noodle", "views": 1000000, "likes": 19478399,},
+    { "name" : "Tenz", "views": 10044242, "likes": 198399,},
+    { "name" : "Shazam", "views": 1053540, "likes": 194339,},
+    { "name" : "Pokimane", "views": 4927200, "likes": 1318399,},
+    { "name" : "Dapr", "views": 9000000, "likes": 111499,},
+]
 
-n = input("enter")
 
-video_response3 = requests.get(BASE_URL+ "Video/{0}".format(n))
+for i in range(len(video_response)):
+    response = requests.put(BASE_URL+ "Video/" + str(i), video_response[i])
 
-print(response.json())
-print(post_response.json())
-print(param_response.json())
-print(param2_response.json())
-print(param3_response.json())
-print(video_response.json())
-print(video_response2.json())
-print(video_response3.json())
+n = input("enter (0,4)")
+
+response2 = requests.get(BASE_URL+ "Video/{0}".format(n))
+
+# print(response.json())
+# print(post_response.json())
+# print(param_response.json())
+# print(param2_response.json())
+# print(param3_response.json())
+
+print(response2)
+print(response2.json())

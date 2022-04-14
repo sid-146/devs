@@ -1,3 +1,4 @@
+from email import message
 from flask import Flask, jsonify
 from flask_restful import Api, Resource, abort, reqparse, fields, marshal_with
 from flask_sqlalchemy import SQLAlchemy
@@ -114,14 +115,26 @@ class Video(Resource):
 
 class NewVideoAPI(Resource):
     # To fetch data
+    # marshal_converts videoModel object to json specifier
     @marshal_with(Resource_Field)
     def get(self, video_id):
-        result = videoModel.query.get(id= video_id)
+        result = videoModel.query.filter_by(id= video_id).first()
+        if not result:
+            abort(404, message= "Video_ID not found...")
+        print(type(result))
+        return result
+        # return jsonify(result), 200
 
     # To update data
+    @marshal_with(Resource_Field)
     def put(self, video_id):
         args = videos_request_parser.parse_args()
-        video = videoModel(id= video_id, name = args['name'], views= args['views'], likes= args['likes'])
+        result = videoModel.query.filter_by(id= video_id).first()
+        if result:
+            abort(409, message= "Video_Id already exist...")
+        tempVideo = videoModel(id= video_id, name = args['name'], views= args['views'], likes= args['likes'])
+        db.session.add(tempVideo)
+        db.session.commit()
         return videos[video_id], 201
 
 
