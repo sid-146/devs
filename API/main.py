@@ -105,6 +105,7 @@ class Video(Resource):
     def put(self, video_id):
         videoIDExist(video_id=video_id)
         args = videos_request_parser.parse_args()
+        print(args)
         videos[video_id] = args
         return args, 201 # 201 showing successful updataion
 
