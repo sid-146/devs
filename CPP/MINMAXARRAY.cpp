@@ -29,6 +29,8 @@ Values getMinMax(int len, int arr[])
 
     for (int i = 0; i < len; i++)
     {
+
+        //base condition done
         if (MinMax.MaxValue <= arr[i])
         {
             MinMax.MaxValue = arr[i];
@@ -42,7 +44,7 @@ Values getMinMax(int len, int arr[])
 
     return MinMax;
 }
-
+// Add random array generation 
 int main()
 {
     return 0;
