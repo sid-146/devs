@@ -10,9 +10,15 @@ struct Values
     int MaxValue;
 };
 
+// create a struct type return type
 Values getMinMax(int len, int arr[])
 {
     struct Values MinMax;
+    //! assigning default values to the min and max values
+
+    MinMax.MaxValue = 0;
+    MinMax.MinValue = 10000000;
+
     if (len == 0)
     {
         MinMax.MaxValue = arr[0];
@@ -23,6 +29,12 @@ Values getMinMax(int len, int arr[])
 
     for (int i = 0; i < len; i++)
     {
+        if (MinMax.MaxValue <= arr[i])
+        {
+            MinMax.MaxValue = arr[i];
+        }
+
+        if (MinMax.MinValue)
     }
 
     return MinMax;
