@@ -4,9 +4,10 @@
 #include "iostream"
 
 // Including header file
-#include <HeaderFiles/randint.h>
+#include <randint.h>
 using namespace std;
 
+// check code to run for the custom header file
 // Driver Code
 int main()
 {
