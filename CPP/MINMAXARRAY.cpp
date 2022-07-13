@@ -34,7 +34,10 @@ Values getMinMax(int len, int arr[])
             MinMax.MaxValue = arr[i];
         }
 
-        if (MinMax.MinValue)
+        if (MinMax.MinValue >= arr[i])
+        {
+            MinMax.MinValue = arr[i];
+        }
     }
 
     return MinMax;
