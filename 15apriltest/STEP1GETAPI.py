@@ -7,7 +7,6 @@ import requests
 
 # BASE_URL = "https://dev-api.healthrx.co.in/campus-hiring/input"
 # SECERT = "CLJEW9"
-# PARAM = {"email":"skdlstudies@gmail.com"}
 
 # response = requests.get(BASE_URL, params=PARAM)
 
@@ -24,7 +23,8 @@ import requests
 
 BASE_URL = "https://dev-api.healthrx.co.in/campus-hiring/input"
 SECERT = "CLJEW9"
-PARAM = {"email":"sudhanwakaveeshwarci19@acropolis.in"}
+# PARAM = {"email":"sudhanwakaveeshwarci19@acropolis.in"}
+PARAM = {"email":"skdlstudies@gmail.com"}
 
 response = requests.get(BASE_URL, params=PARAM)
 
