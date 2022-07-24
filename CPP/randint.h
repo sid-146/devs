@@ -5,11 +5,6 @@
 #include <bits/stdc++.h>
 
 // figure out how to setup the header file for all files
-int sumOfTwoNumbers(int a, int b)
-
-{
-    return (a + b);
-}
 
 int randomizer()
 {
