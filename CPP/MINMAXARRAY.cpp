@@ -1,5 +1,6 @@
 #include <iostream>
 #include <time.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -30,7 +31,7 @@ Values getMinMax(int len, int arr[])
     for (int i = 0; i < len; i++)
     {
 
-        //base condition done
+        // base condition done
         if (MinMax.MaxValue <= arr[i])
         {
             MinMax.MaxValue = arr[i];
@@ -44,8 +45,20 @@ Values getMinMax(int len, int arr[])
 
     return MinMax;
 }
-// Add random array generation 
+
+int randomizer()
+{
+    int number;
+
+    srand(time(0));
+
+    return rand();
+    // return number
+}
+// Add random array generation
 int main()
 {
+
+    cout << randomizer();
     return 0;
 }
