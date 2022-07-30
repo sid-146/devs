@@ -12,6 +12,13 @@ using namespace std;
 // };
 
 
+void showArray(int arr[])
+{
+    int sizeofArray = sizeof() / sizeof(arr[0]);
+
+    
+
+}
 
 int bubble(int arr[])
 {
@@ -37,7 +44,7 @@ int main()
 {
     int arr[10] = {12, 41, 53, 6, 73, 8, 56, 66, 11, 34};
 
-    int *SortedArr = bubble(arr);
+    int SortedArr = bubble(arr);
 
     int sizeOfArray = sizeof(arr) / sizeof(arr[0]);
     cout << sizeOfArray << endl;
