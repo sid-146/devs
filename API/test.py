@@ -8,7 +8,7 @@ post_response = requests.post(BASE_URL + "HP")
 
 param_response = requests.get(BASE_URL + "para/SK")
 param2_response = requests.get(BASE_URL + "para/Rio")
-param3_response = requests.get(BASE_URL + "para/Oli")
+param3_response = requests.get(BASE_URL + "para/oli")
 
 video_response = [
     { "name" : "How to Noodle", "views": 1000000, "likes": 19478399,},

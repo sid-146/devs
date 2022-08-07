@@ -56,7 +56,7 @@ videos_request_parser.add_argument("views", type=int, help= "Number of views on 
 names = {
     "SK" :{"age": 20, "spicies":"hooman"},
     "Rio" :{"age": 3, "spicies": "Dog"},
-    "Oli": {"age": 2, "spicies": "Dog"}
+    "oli": {"age": 2, "spicies": "Dog"}
 }
 
 videos = {
