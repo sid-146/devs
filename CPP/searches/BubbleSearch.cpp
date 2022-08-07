@@ -5,24 +5,21 @@ using namespace std;
 
 // ! under trial trying to return exection time and sorted array
 
-// struct ANSWER
-// {
-//     int time;
-//     int arr;
-// };
-
-
-void showArray(int arr[])
+void showArray(int arr[], int sizeOfArray)
 {
-    int sizeofArray = sizeof() / sizeof(arr[0]);
 
-    
+    cout << "Run showArray " << sizeOfArray << endl;
 
+    for (int i = 0; i < sizeOfArray; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
 }
 
-int bubble(int arr[])
+void bubble(int arr[], int sizeOfArray)
 {
-    int sizeOfArray = sizeof(arr) / sizeof(arr[0]);
+    cout << "Run bubble " << sizeOfArray << endl;
 
     for (int i = 0; i < sizeOfArray; i++)
     {
@@ -37,22 +34,20 @@ int bubble(int arr[])
         }
     }
 
-    return arr;
+    showArray(arr, sizeOfArray);
 }
 
 int main()
 {
     int arr[10] = {12, 41, 53, 6, 73, 8, 56, 66, 11, 34};
 
-    int SortedArr = bubble(arr);
+    int sizeOfArray = sizeof(arr) / sizeof(arr[1]);
 
-    int sizeOfArray = sizeof(arr) / sizeof(arr[0]);
-    cout << sizeOfArray << endl;
+    cout << "Run main " << sizeOfArray << endl;
 
-    for (int i = 0; i < sizeOfArray; i++)
-    {
-        cout << SortedArr[i] << " ";
-    }
+    showArray(arr, sizeOfArray);
+
+    bubble(arr, sizeOfArray);
 
     return 0;
 }
