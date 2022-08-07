@@ -23,14 +23,15 @@ void bubble(int arr[], int sizeOfArray)
 
     for (int i = 0; i < sizeOfArray; i++)
     {
-        for (int j = 0; j = sizeOfArray - i - 1; j++)
+        // cout << i << " i" << endl;
+        for (int j = 0; j < sizeOfArray - i - 1; j++)
         {
+            // cout << j << " j ";
             if (arr[j] >= arr[j + 1])
             {
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
+                swap(arr[i], arr[j]);
             }
+            // cout << " end ";
         }
     }
 
