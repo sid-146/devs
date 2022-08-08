@@ -3,7 +3,25 @@
 
 using namespace std;
 
-// ! under trial trying to return exection time and sorted array
+// ! try to automate process for range of the array values like 10 to 10k or more
+// ! calculate time taken to compute that
+
+/*
+* hint use file handling to store data CSV and generate array len
+
+*/
+
+struct timeTaken
+{
+    int startTime;
+    int endTime;
+    int TAT;
+    int sortStartTime;
+    int sortEndTime;
+
+};
+
+
 
 void showArray(int arr[], int sizeOfArray)
 {
@@ -23,15 +41,13 @@ void bubble(int arr[], int sizeOfArray)
 
     for (int i = 0; i < sizeOfArray; i++)
     {
-        // cout << i << " i" << endl;
+
         for (int j = 0; j < sizeOfArray - i - 1; j++)
         {
-            // cout << j << " j ";
             if (arr[j] >= arr[j + 1])
             {
-                swap(arr[i], arr[j]);
+                swap(arr[j], arr[j + 1]);
             }
-            // cout << " end ";
         }
     }
 
