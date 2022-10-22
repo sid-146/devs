@@ -1,0 +1,15 @@
+resource calc
+time calc
+sorting searching DS implementation
+
+different algo comparision
+charts graphs
+
+visualize different algorithm
+
+
+comparision of different algorithm from different domain eg ds os etc
+on resource management
+
+create a flow chart and try 
+create a directory flow and try to optimize it

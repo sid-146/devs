@@ -4,7 +4,7 @@
 
 <h2>Under CPP </h2>
 <ul>
-    <li>Exponential Search</li>
+    <a href ="https://github.com/sid-146/AlgoRhythm/blob/main/CPP/ExponentialSearch.cpp"><li>Exponential Search</li></a>
     <li></li>
 </ul>
 

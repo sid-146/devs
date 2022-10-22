@@ -1,9 +1,8 @@
-
-'''
+"""
 calculate dx, dy, slop
 
 
-'''
+"""
 from turtle import xcor
 from matplotlib import pyplot
 
@@ -25,3 +24,6 @@ yCordinate = []
 
 pyplot.plot(xCordinate, yCordinate)
 pyplot.show()
+
+
+## add something 
