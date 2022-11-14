@@ -60,15 +60,17 @@ def main():
     direction = FORWARD
     speed = 6
     increment = 2
-
+    
     stars = initial_stars(window)
 
+    # Place first stars
     for i in range(0, 100):
         window.set_at(stars[i], WHITE)
     
     running = True
     while running:
         
+        # Inputs event handler
         event = pygame.event.poll()
         if (event.type == QUIT):
             break
@@ -84,36 +86,43 @@ def main():
             elif (event.key == K_RIGHT):
                 direction = FORWARD
 
+        # Used to create far distance motion
         increment += 1
-
+#! If we do not remove stars before plottng them they will create tails
+        # Erase First Star fields
         for ii in range(0, 100):
             window.set_at(stars[ii], BLACK)
-
+        
+        # Check first star collosion to end of window
         stars = moveStars(window, stars, 0, 100, direction)
-
-        if increment % 2 == 0:
+        
+        # Second Star field 
+        if (increment % 2 == 0):
+            # Erase second star field
             for i in range(101, 200):
                 window.set_at(stars[i], BLACK)
 
+            # check second star field collosion with end of window
             stars = moveStars(window, stars, 101, 200, direction)
 
-            for i in range(101, 200):
-                window.set_at(stars[i], BLACK)
-
-            stars = moveStars(window, stars, 101, 200, direction)
-
+            # Placing Lightgrey stars
             for i in range(101, 200):
                 window.set_at(stars[i], LIGHTGRAY)
 
+
+            #  Third star field 
             if increment % 5 == 0:
+                # Erase third star field
                 for i in range(201, NUM_STARS):
                     window.set_at(stars[i], BLACK)
 
-            stars = moveStars(window, stars, 201, NUM_STARS, direction)
+                stars = moveStars(window, stars, 201, NUM_STARS, direction)
 
-            for i in range(201, NUM_STARS):
-                window.set_at(stars[i], DARKGRAY)
+                #  Place Darkgrey Stars
+                for i in range(201, NUM_STARS):
+                    window.set_at(stars[i], DARKGRAY)
 
+        
         for i in range(0, 10):
             window.set_at(stars[i], WHITE)
         
