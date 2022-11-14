@@ -46,6 +46,7 @@ def moveStars(window, stars, start, end, direction):
 
 
 def setup():
+    window = pygame.display.set_mode(SCREEN_SIZE, FULLSCREEN)
     window = pygame.display.set_mode(SCREEN_SIZE)
     pygame.display.set_caption("Star Field")
     window.fill(BLACK)
