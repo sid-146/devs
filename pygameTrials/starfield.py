@@ -1,40 +1,129 @@
 import pygame
-import sys
+from pygame.locals import *
 import random
 
-DISPLAY_HEIGHT = 600
-DISPLAY_WIDTH = 1000
+NUM_STARS = 400
+FORWARD = 1
+BACKWARD = 0
+LIGHTGRAY = 180, 180, 180
+DARKGRAY = 120, 120, 120
+SCREEN_SIZE = (900, 600)
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
 
 # pygame.display.init()
 
-display_size = (DISPLAY_WIDTH, DISPLAY_HEIGHT)
+def initial_stars(window):
+    stars = []
 
-bg_color = (10, 10, 10)
-window = pygame.display.set_mode(display_size)
+    for i in range(0, NUM_STARS):
+        # co ordinate of single star
+        x = random.randint(0, window.get_width() - 1)
+        y = random.randint(0, window.get_height() - 1)
+        star = [x, y]
+        stars.append(star)
 
-pygame.display.set_caption("Star Field")
-
-window.fill(bg_color)
-
-pygame.display.flip()
-
-running = True
-
-
-def get_circle(window):
-    color = (255, 255, 255)
-
-    random_x = random.randint(0, DISPLAY_WIDTH)
-    random_y = random.randint(0, DISPLAY_HEIGHT)
-
-    coordiante = [random_x, random_y]
-    pygame.draw.circle(window, color, coordiante, 2, 0)
+    return stars
 
 
-first_run = True
-while running:
-    get_circle(window)
-    pygame.display.update()
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+def moveStars(window, stars, start, end, direction):
+
+    for i in range(start, end):
+        if direction == BACKWARD:
+            if stars[i][0] != 1:
+                stars[i][0] = stars[i][0] - 1
+            else:
+                stars[i][1] = random.randint(0, window.get_width() - 1)
+                stars[i][0] = random.randint(0, window.get_height() - 1)
+        elif direction == FORWARD:
+            if stars[i][0] != window.get_width() - 1:
+                stars[i][0] = stars[i][0] + 1
+            else:
+                stars[i][1] = random.randint(0, window.get_height() - 1)
+                stars[i][0] = 1
+
+    return stars
+
+
+def setup():
+    window = pygame.display.set_mode(SCREEN_SIZE)
+    pygame.display.set_caption("Star Field")
+    window.fill(BLACK)
+    return window
+
+
+def main():
+    pygame.init()
+    window = setup()
+
+    # Controller variable
+    direction = FORWARD
+    speed = 6
+    increment = 2
+
+    stars = initial_stars(window)
+
+    for i in range(0, 100):
+        window.set_at(stars[i], WHITE)
+    
+    running = True
+    while running:
+        
+        event = pygame.event.poll()
+        if (event.type == QUIT):
+            break
+        elif (event.type == KEYDOWN):
+            if (event.key == K_ESCAPE):
+                break
+            elif (event.key == K_UP):
+                if (speed >= 2): speed = speed - 1
+            elif (event.key == K_DOWN):
+                if (speed <= 16): speed = speed + 1
+            elif (event.key == K_LEFT):
+                direction = BACKWARD
+            elif (event.key == K_RIGHT):
+                direction = FORWARD
+
+        increment += 1
+
+        for ii in range(0, 100):
+            window.set_at(stars[ii], BLACK)
+
+        stars = moveStars(window, stars, 0, 100, direction)
+
+        if increment % 2 == 0:
+            for i in range(101, 200):
+                window.set_at(stars[i], BLACK)
+
+            stars = moveStars(window, stars, 101, 200, direction)
+
+            for i in range(101, 200):
+                window.set_at(stars[i], BLACK)
+
+            stars = moveStars(window, stars, 101, 200, direction)
+
+            for i in range(101, 200):
+                window.set_at(stars[i], LIGHTGRAY)
+
+            if increment % 5 == 0:
+                for i in range(201, NUM_STARS):
+                    window.set_at(stars[i], BLACK)
+
+            stars = moveStars(window, stars, 201, NUM_STARS, direction)
+
+            for i in range(201, NUM_STARS):
+                window.set_at(stars[i], DARKGRAY)
+
+        for i in range(0, 10):
+            window.set_at(stars[i], WHITE)
+        
+
+        pygame.time.delay(speed)
+
+        if increment == 500:
+            increment = 2
+
+        pygame.display.update()
+
+if __name__ == "__main__":
+    main()
