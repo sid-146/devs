@@ -7,6 +7,7 @@ FORWARD = 1
 BACKWARD = 0
 LIGHTGRAY = 180, 180, 180
 DARKGRAY = 120, 120, 120
+GOLDEN = (255, 192, 0)
 SCREEN_SIZE = (900, 600)
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -47,8 +48,8 @@ def moveStars(window, stars, start, end, direction):
 
 
 def setup():
-    window = pygame.display.set_mode(SCREEN_SIZE, FULLSCREEN)
-    # window = pygame.display.set_mode(SCREEN_SIZE)
+    # window = pygame.display.set_mode(SCREEN_SIZE, FULLSCREEN)
+    window = pygame.display.set_mode(SCREEN_SIZE)
     pygame.display.set_caption("Star Field")
     window.fill(BLACK)
     return window
@@ -124,6 +125,17 @@ def main():
                 #  Place Darkgrey Stars
                 for i in range(201, NUM_STARS):
                     window.set_at(stars[i], DARKGRAY)
+
+            if increment % 10 == 0:
+                #  Erase golden stars
+                for i in range(100, 201):
+                    window.set_at(stars[i], BLACK)
+
+                stars = moveStars(window, stars, 100, 201, direction)
+
+                #  Draw golden stars
+                for i in range(100, 201):
+                    window.set_at(stars[i], GOLDEN)
 
         for i in range(0, 10):
             window.set_at(stars[i], WHITE)
