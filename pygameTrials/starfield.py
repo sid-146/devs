@@ -13,6 +13,7 @@ WHITE = (255, 255, 255)
 
 # pygame.display.init()
 
+
 def initial_stars(window):
     stars = []
 
@@ -47,7 +48,7 @@ def moveStars(window, stars, start, end, direction):
 
 def setup():
     window = pygame.display.set_mode(SCREEN_SIZE, FULLSCREEN)
-    window = pygame.display.set_mode(SCREEN_SIZE)
+    # window = pygame.display.set_mode(SCREEN_SIZE)
     pygame.display.set_caption("Star Field")
     window.fill(BLACK)
     return window
@@ -61,44 +62,46 @@ def main():
     direction = FORWARD
     speed = 6
     increment = 2
-    
+
     stars = initial_stars(window)
 
     # Place first stars
     for i in range(0, 100):
         window.set_at(stars[i], WHITE)
-    
+
     running = True
     while running:
-        
+
         # Inputs event handler
         event = pygame.event.poll()
-        if (event.type == QUIT):
+        if event.type == QUIT:
             break
-        elif (event.type == KEYDOWN):
-            if (event.key == K_ESCAPE):
+        elif event.type == KEYDOWN:
+            if event.key == K_ESCAPE:
                 break
-            elif (event.key == K_UP):
-                if (speed >= 2): speed = speed - 1
-            elif (event.key == K_DOWN):
-                if (speed <= 16): speed = speed + 1
-            elif (event.key == K_LEFT):
+            elif event.key == K_UP:
+                if speed >= 2:
+                    speed = speed - 1
+            elif event.key == K_DOWN:
+                if speed <= 16:
+                    speed = speed + 1
+            elif event.key == K_LEFT:
                 direction = BACKWARD
-            elif (event.key == K_RIGHT):
+            elif event.key == K_RIGHT:
                 direction = FORWARD
 
         # Used to create far distance motion
         increment += 1
-#! If we do not remove stars before plottng them they will create tails
+        #! If we do not remove stars before plottng them they will create tails
         # Erase First Star fields
         for ii in range(0, 100):
             window.set_at(stars[ii], BLACK)
-        
+
         # Check first star collosion to end of window
         stars = moveStars(window, stars, 0, 100, direction)
-        
-        # Second Star field 
-        if (increment % 2 == 0):
+
+        # Second Star field
+        if increment % 2 == 0:
             # Erase second star field
             for i in range(101, 200):
                 window.set_at(stars[i], BLACK)
@@ -110,8 +113,7 @@ def main():
             for i in range(101, 200):
                 window.set_at(stars[i], LIGHTGRAY)
 
-
-            #  Third star field 
+            #  Third star field
             if increment % 5 == 0:
                 # Erase third star field
                 for i in range(201, NUM_STARS):
@@ -123,10 +125,8 @@ def main():
                 for i in range(201, NUM_STARS):
                     window.set_at(stars[i], DARKGRAY)
 
-        
         for i in range(0, 10):
             window.set_at(stars[i], WHITE)
-        
 
         pygame.time.delay(speed)
 
@@ -134,6 +134,7 @@ def main():
             increment = 2
 
         pygame.display.update()
+
 
 if __name__ == "__main__":
     main()
