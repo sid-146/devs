@@ -1,4 +1,4 @@
 15apriltest
 *.exe
 .vscode
-./try.py
+try.py
