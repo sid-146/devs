@@ -29,12 +29,12 @@ class videoModel(db.Model):
     Likes = db.Column(db.Integer, nullable = False)
     
     def __repr__(self):
-        return f"Video(name={Name}, views={Views}, likes={Likes})"
+        return f"Video(name={self.Name}, views={self.Views}, likes={self.Likes})"
 
 
 # ! line number 35 should be untouched othewise it will mess up with the databse
 # db.create_all() #! DO NOT TOUCH IT !!!!!
-##*####################################################################
+# *####################################################################
 
 
 Resource_Field = {
