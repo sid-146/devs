@@ -3,27 +3,29 @@ calculate dx, dy, slop
 
 
 """
-from turtle import xcor
+
 from matplotlib import pyplot
 
-xCordinate = []
-yCordinate = []
 
-x1 = int(input("Enter Starting 'X' co-ordinate: "))
-y1 = int(input("Enter Starting 'Y' co-ordinate: "))
+def DDA(x_start, y_start, x_end, y_end):
+    xCordinate = []
+    yCordinate = []
 
-xEnd = int(input("Enter ending 'X' co-ordinate: "))
-yEnd = int(input("Enter ending 'Y' co-ordinate: "))
+    dx = x_end - x_start
+    dy = y_end - y_start
 
-dx = xEnd - x1
-dy = yEnd - y1
+    xCordinate = []
+    yCordinate = []
 
-
-xCordinate = []
-yCordinate = []
-
-pyplot.plot(xCordinate, yCordinate)
-pyplot.show()
+    pyplot.plot(xCordinate, yCordinate)
+    pyplot.show()
 
 
-## add something 
+if __name__ == "__main__":
+    x_start = int(input("Enter Starting 'X' co-ordinate: "))
+    y_start = int(input("Enter Starting 'Y' co-ordinate: "))
+
+    x_end = int(input("Enter ending 'X' co-ordinate: "))
+    y_end = int(input("Enter ending 'Y' co-ordinate: "))
+
+    DDA(x_start=x_start, y_start=y_start, x_end=x_end, y_end=y_end)
